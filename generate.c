@@ -12,6 +12,7 @@
  
  #include <stdio.h>
  #include <stdlib.h>
+ #include <cs50.h>
  
  int main (int argc, char* argv[])
  {
@@ -19,13 +20,15 @@
     if (argc > 1)
     {
         //Grab the total number of random numbers requested
-        int end = int(argv[1]);
+        printf("Enter number: ");
+        int end = GetInt();
         for (int i = 0; i < end; i++)
         {
             //Grab a random number from the seed and print
-            int seed = 145
-            int number = rand_r(&seed);
-            printf("%d\n");
+            long int seed = 145;
+            srand48(seed);
+            int number = nrand48();
+            printf("%d\n", number);
         }
     }
     else
